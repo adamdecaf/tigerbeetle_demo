@@ -14,7 +14,8 @@ func setupClient(t *testing.T) tigerbeetle_go.Client {
 
 	addresses := []string{"127.0.0.1:3002", "127.0.0.1:3001", "127.0.0.1:3003"}
 
-	client, err := tigerbeetle_go.NewClient(types.ToUint128(0), addresses)
+	clusterID := types.ToUint128(1)
+	client, err := tigerbeetle_go.NewClient(clusterID, addresses)
 	require.NoError(t, err)
 
 	t.Cleanup(func() {
