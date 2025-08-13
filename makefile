@@ -1,6 +1,6 @@
 .PHONY: setup
 setup: datafiles
-	docker-compose up -d
+	docker compose up -d
 
 datafiles:
 	docker run --security-opt seccomp=unconfined -v $(pwd)/data:/data ghcr.io/tigerbeetle/tigerbeetle format --cluster=0 --replica=0 --replica-count=3 /data/0_0.tigerbeetle
