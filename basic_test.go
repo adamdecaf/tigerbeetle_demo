@@ -55,18 +55,21 @@ func TestBasic(t *testing.T) {
 	}
 
 	// Check the sums for both accounts
-	accounts, err := client.LookupAccounts([]types.Uint128{types.ToUint128(1), types.ToUint128(2)})
+	accounts, err := client.LookupAccounts([]types.Uint128{accountID1, accountID2})
 	require.NoError(t, err)
 	require.Len(t, accounts, 2)
 
 	for _, account := range accounts {
-		if account.ID == types.ToUint128(1) {
+		switch account.ID {
+		case accountID1:
 			require.Equal(t, types.ToUint128(10), account.DebitsPosted, "account 1 debits")
 			require.Equal(t, types.ToUint128(0), account.CreditsPosted, "account 1 credits")
-		} else if account.ID == types.ToUint128(2) {
+
+		case accountID2:
 			require.Equal(t, types.ToUint128(0), account.DebitsPosted, "account 2 debits")
 			require.Equal(t, types.ToUint128(10), account.CreditsPosted, "account 2 credits")
-		} else {
+
+		default:
 			log.Fatalf("Unexpected account")
 		}
 	}
