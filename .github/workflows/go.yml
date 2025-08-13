@@ -31,3 +31,7 @@ jobs:
 
     - name: Check
       run: make check
+
+    - name: Logs
+      if: ${{ !cancelled() }}
+      run: docker compose logs
