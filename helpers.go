@@ -12,9 +12,9 @@ import (
 func setupClient(t *testing.T) tigerbeetle_go.Client {
 	t.Helper()
 
-	addresses := []string{"127.0.0.1:3002", "127.0.0.1:3001", "127.0.0.1:3003"}
+	addresses := []string{"127.0.0.1:3001", "127.0.0.1:3002", "127.0.0.1:3003"}
 
-	clusterID := types.ToUint128(1)
+	clusterID := types.ToUint128(5)
 	client, err := tigerbeetle_go.NewClient(clusterID, addresses)
 	require.NoError(t, err)
 

@@ -17,7 +17,7 @@ version: "3.7"
 services:
   tigerbeetle_0:
     image: ghcr.io/tigerbeetle/tigerbeetle
-    command: "start --addresses=0.0.0.0:3001,0.0.0.0:3002,0.0.0.0:3003 /data/1_0.tigerbeetle"
+    command: "start --addresses=0.0.0.0:3001,0.0.0.0:3002,0.0.0.0:3003 /data/5_0.tigerbeetle"
     network_mode: host
     volumes:
       - ./data:/data
@@ -26,7 +26,7 @@ services:
 
   tigerbeetle_1:
     image: ghcr.io/tigerbeetle/tigerbeetle
-    command: "start --addresses=0.0.0.0:3001,0.0.0.0:3002,0.0.0.0:3003 /data/1_1.tigerbeetle"
+    command: "start --addresses=0.0.0.0:3001,0.0.0.0:3002,0.0.0.0:3003 /data/5_1.tigerbeetle"
     network_mode: host
     volumes:
       - ./data:/data
@@ -35,7 +35,7 @@ services:
 
   tigerbeetle_2:
     image: ghcr.io/tigerbeetle/tigerbeetle
-    command: "start --addresses=0.0.0.0:3001,0.0.0.0:3002,0.0.0.0:3003 /data/1_2.tigerbeetle"
+    command: "start --addresses=0.0.0.0:3001,0.0.0.0:3002,0.0.0.0:3003 /data/5_2.tigerbeetle"
     network_mode: host
     volumes:
       - ./data:/data
